@@ -18,7 +18,7 @@ new Vue({
           messageIndex: 0,
         currentStep: 1,
         bdstoken: localStorage.getItem('Blink_bdstoken'),
-        savePath: '/',
+        savePath: localStorage.getItem('Blink_savePath') ? localStorage.getItem('Blink_savePath') : '/',
         link: location.pathname.slice(1) + decodeURI(location.hash),
         raw_result: '',
         quickmode: localStorage.getItem('Quick_mode')
