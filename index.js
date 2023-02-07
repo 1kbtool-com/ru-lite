@@ -11,8 +11,10 @@ new Vue({
         messages: [
             'Lite 版基于原版修改，<a class="link link-primary" href="https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]"target="_blank">点此打开原版</a>  ',
             '点击数字可以切换步骤',
-            '首次使用之后，可以在第五步的界面开启一键转存',
-            '如果一键转存失败，建议关闭，手动转存后再尝试',
+            '可以在第五步的界面开启一键转存',
+            '请允许弹出窗口',
+            '如果一键转存失败，建议手动转存',
+            '一般来说，第四步弹出窗口很长一串就成功了',
           ],
           currentMessage: '',
           messageIndex: 0,
