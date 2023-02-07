@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>百度网盘秒传链接转存 Lite</title>
+  <meta name="description" content="百度网盘秒传链接转存 Lite 版本">
+  <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/daisyui/2.2.2/full.min.css" type="text/css"
+    rel="stylesheet" />
+  <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css" type="text/css"
+    rel="stylesheet" />
+  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Base64/1.1.0/base64.min.js"
+    type="application/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js"
+    type="application/javascript"></script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7692266966719684"
+    crossorigin="anonymous"></script>
+    <style>
+      .text-slider {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .text-slider .slide {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        animation: slide-animation 12s linear infinite;
+      }
+      
+      @keyframes slide-animation {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+    </style>
+</head>
+
+<body>
+  <div id="app" class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <div class="">
+          <div class="indicator py-3">
+            <!-- <span class="indicator-item badge badge-secondary"></span> -->
+            <h1 class="text-6xl font-bold">秒传工具 Lite</h1>
+          </div>
+          <div class="text-slider">
+            <p v-html="currentMessage"></p>
+          </div>
+          <ul class="steps py-5">
+           
+              <li class="step" :class="{'step-primary': currentStep >= 1}" @click="setCurrentStep(1)">
+                登录网盘
+              </li>
+              <li class="step" :class="{'step-primary': currentStep >= 2}" @click="setCurrentStep(2)">
+                获取token
+              </li>
+              <li class="step" :class="{'step-primary': currentStep >= 3}" @click="setCurrentStep(3)">
+                填写路径
+              </li>
+              <li class="step" :class="{'step-primary': currentStep >= 4}" @click="setCurrentStep(4)">
+                输入转存码
+              </li>
+              <li class="step" :class="{'step-primary': currentStep >= 5}" @click="setCurrentStep(5)">
+                查看结果
+              </li>
+          
+          </ul>
+
+          <div v-if="currentStep === 1 " class="gap-y-4 grid">
+            <h1 class="text-4xl font-bold">登录百度网盘</h1>
+            <p class=""> 打开以下网址并登录，然后返回本页</p>
+            <div>
+              <a href="https://pan.baidu.com" target="_blank" class="btn btn-primary" @click="nextStep">百度网盘</a>
+            </div>
+          </div>
+
+          <div v-if="currentStep === 2" class="gap-y-4 grid">
+            <h1 class="text-4xl font-bold">获取bdstoken</h1>
+            <p class=""><a class="link link-primary"
+                href="https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]"
+                target="_blank">点此打开百度接口</a>
+              ，复制里面的内容并粘贴到下面</p>
+            <p><input type="text" v-model="bdstoken" placeholder="请输入bdstoken" class="input w-full max-w-xs"></p>
+            <div>
+              <button class="btn btn-primary " @click="get_bdstoken">确认</button>
+            </div>
+          </div>
+
+          <div v-if="currentStep === 3" class="gap-y-4 grid">
+            <h1 class="text-4xl font-bold">填写转存路径</h1>
+            <p>输入转存路径（如 /book/，默认首页）</p>
+            <p><input type="text" v-model="savePath" placeholder="请输入转存路径" class="input w-full max-w-xs"></p>
+            <p><button class="btn btn-primary" @click="nextStep">确认</button></p>
+          </div>
+
+          <div v-if="currentStep === 4" class="gap-y-4 grid">
+            <h1 class="text-4xl font-bold">输入转存码</h1>
+            <p>输入转存码，一行一个，点击转存打开百度接口界面，复制全部内容返回本页查看结果</p>
+            <textarea class="textarea" v-model="link" placeholder="请输入转存码"></textarea>
+            <p> <button class="btn btn-primary" @click="submitLink">转存</button></p>
+          </div>
+
+          <div v-if="currentStep === 5" class="gap-y-4 grid">
+            <h1 class="text-4xl font-bold">查看结果</h1>
+            <p>粘贴接口返回内容</p>
+            <textarea class="textarea" v-model="raw_result" placeholder="请输入返回值"></textarea>
+            <p> <button class="btn btn-primary" @click="get_result">查看结果</button></p>
+            <!-- <div class="divider"></div> -->
+            <div v-if="quickmode == 'enabled'">
+              <button class="btn" @click="set_quickmode('disabled')">关闭一键转存</button>
+            </div>
+            <div v-if="quickmode == 'disabled' || !quickmode">
+              <button class="btn" @click="set_quickmode('enabled')">开启一键转存</button>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+          <div class="form-control w-52"  v-if="quickmode">
+   
+          </div>
+          </div>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./common/Tools.js?version=1.4"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
