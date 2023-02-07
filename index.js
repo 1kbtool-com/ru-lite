@@ -28,7 +28,9 @@ new Vue({
         if(quickmode == 'enabled'){
             // console.log(quickmode)
             this.currentStep = 4
+            window.open('https://pan.baidu.com','_blank')
             this.submitLink()
+
         }
         // console.log(quickmode)
         // this.startSlider();
