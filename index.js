@@ -112,7 +112,8 @@ new Vue({
                 saveFile2(
                     file.md5,
                     file.size,
-                    savePath + file.path.replace(illegalPathPattern, "_")
+                    savePath + file.path.replace(illegalPathPattern, "_"),
+                    bdstoken
                 );
             });
             this.nextStep()
