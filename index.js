@@ -107,14 +107,16 @@ new Vue({
                 return;
             }
             window.open('https://pan.baidu.com','_blank')
-            data.forEach(file => {
-                saveFile2(
-                    file.md5,
-                    file.size,
-                    savePath + file.path.replace(illegalPathPattern, "_"),
-                    bdstoken
-                );
-            });
+            setTimeout(function() {
+                data.forEach(file => {
+                    saveFile2(
+                        file.md5,
+                        file.size,
+                        savePath + file.path.replace(illegalPathPattern, "_"),
+                        bdstoken
+                    );
+                });
+              }, 1000); // 1000毫秒等于1秒
             this.nextStep()
             console.log(this.currentStep)
         }
