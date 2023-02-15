@@ -30,9 +30,7 @@ new Vue({
         if(quickmode == 'enabled'){
             // console.log(quickmode)
             this.currentStep = 4
-            window.open('https://pan.baidu.com','_blank')
             this.submitLink()
-
         }
         // console.log(quickmode)
         // this.startSlider();
@@ -66,17 +64,17 @@ new Vue({
                     msg = '秒传成功';
                     break;
                 case -6:
-                    msg = '认证失败';
+                    msg = '认证失败，请刷新百度网盘页面并确认 bdstoken 成功填写';
                     break;
                 case -8:
-                    msg = '路径下存在同名文件/文件夹';
+                    msg = '路径下存在同名文件/文件夹，请切换';
                     break;
                 case 20:
                 case -10:
                     msg = '网盘容量已满';
                     break;
                 case -7:
-                    msg = '转存路径含有非法字符';
+                    msg = '转存路径含有非法字符，请修改转存路径或者转存文件文件名';
                     break;
                 case 404:
                 case 31190:
@@ -108,6 +106,7 @@ new Vue({
                 alert('未检测到有效的秒传链接');
                 return;
             }
+            window.open('https://pan.baidu.com','_blank')
             data.forEach(file => {
                 saveFile2(
                     file.md5,
