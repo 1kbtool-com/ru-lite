@@ -87,7 +87,7 @@
             <h1 class="text-4xl font-bold">获取bdstoken</h1>
             <p class=""><a class="link link-primary"
                 href="https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]"
-                target="_blank">点此打开百度接口</a>
+                target="_blank">点此打开百度接口界面</a>
               ，复制里面的内容并粘贴到下面</p>
             <p><input type="text" v-model="bdstoken" placeholder="请输入bdstoken" class="input w-full max-w-xs"></p>
             <div>
@@ -104,7 +104,7 @@
 
           <div v-if="currentStep === 4" class="gap-y-4 grid">
             <h1 class="text-4xl font-bold">输入转存码</h1>
-            <p>输入转存码，一行一个，点击转存打开百度接口界面，复制全部内容返回本页查看结果</p>
+            <p>输入转存码，一行一个，点击转存会打开百度网盘首页和百度接口界面，请关闭百度网盘首页、打开接口界面，复制全部内容返回本页查看结果</p>
             <textarea class="textarea" v-model="link" placeholder="请输入转存码"></textarea>
             <p> <button class="btn btn-primary" @click="submitLink">转存</button></p>
           </div>
