@@ -9,7 +9,7 @@ new Vue({
     data: {
         activeIndex: 0,
         messages: [
-            'Lite 版基于原版修改，<a class="link link-primary" href="https://rapidupload.1kbtool.com/" target="_blank">点此打开原版</a>  ',
+            `Lite 版基于原版修改，<a class="link link-primary" href="https://rapidupload.1kbtool.com/${location.pathname.slice(1)}" target="_blank">点此打开原版</a>  `,
             '点击数字可以切换步骤',
             '可以在第五步的界面开启一键转存',
             '请允许弹出窗口',
