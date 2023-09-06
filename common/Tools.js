@@ -123,19 +123,7 @@ function saveFile2(md5, size, path, bdstoken,access_token) {
   );
 }
 
-function saveFile2(md5, size, path, bdstoken) {
-  openPostWindow(
-    `https://pan.baidu.com/api/create${
-      bdstoken ? "&bdstoken=" + bdstoken : ""
-    }`,
-    {
-      size,
-      path,
-      block_list: JSON.stringify([md5.toLowerCase()]),
-      rtype: 0,
-    }
-  );
-}
+
 
 /**
  * @description: 解密已加密的md5
