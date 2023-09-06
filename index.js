@@ -4,6 +4,18 @@
 //       el: '.swiper-pagination',
 //     },
 //   })
+
+function getAccessTokenFromURL(url) {
+    // 解析URL中的授权码
+    var accessToken = null;
+    var regex = /access_token=([^&]+)/;
+    var match = regex.exec(url);
+    if (match && match.length > 1) {
+      accessToken = match[1];
+    }
+    return accessToken;
+  }
+  
 new Vue({
     el: '#app',
     data: {
@@ -20,6 +32,7 @@ new Vue({
           messageIndex: 0,
         currentStep: 1,
         bdstoken: localStorage.getItem('Blink_bdstoken'),
+        access_token: localStorage.getItem('Blink_access_token'),
         savePath: localStorage.getItem('Blink_savePath') ? localStorage.getItem('Blink_savePath') : '/',
         link: location.pathname.slice(1) + decodeURI(location.hash),
         raw_result: '',
@@ -94,11 +107,14 @@ new Vue({
                 var json = JSON.parse(this.bdstoken);
                 this.bdstoken = json.result.bdstoken;
             }
+            this.access_token = getAccessTokenFromURL(this.access_token)
+            localStorage.setItem('Blink_access_token',this.access_token)
             this.nextStep()
         },
         submitLink() {
             let savePath = this.savePath;
             let bdstoken = this.bdstoken.trim();
+            let access_token = this.access_token.trim()
             if (!(checkBdstoken(bdstoken) && checkPath(savePath))) return;
             if (savePath.charAt(savePath.length - 1) !== '/') savePath += '/';
             const data = DuParser.parse(this.link)
@@ -113,7 +129,8 @@ new Vue({
                         file.md5,
                         file.size,
                         savePath + file.path.replace(illegalPathPattern, "_"),
-                        bdstoken
+                        bdstoken,
+                        access_token
                     );
                 });
               }, 1000); // 1000毫秒等于1秒

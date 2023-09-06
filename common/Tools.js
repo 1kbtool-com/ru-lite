@@ -96,6 +96,32 @@ function saveFile(md5, md5s, size, path, bdstoken) {
     }
   );
 }
+// var create_url = "https://" + host + "/rest/2.0/xpan/file?method=create";
+
+// url: create_url + "&access_token=" + encodeURIComponent(this.accessToken) + (this.bdstoken ? "&bdstoken=" + this.bdstoken : ""),
+// method: "POST",
+// responseType: "json",
+// data: convertData({
+//     block_list: JSON.stringify([contentMd5]),
+//     path: this.savePath + file.path.replace(illegalPathPattern, "_"),
+//     size: file.size,
+//     isdir: 0,
+//     rtype: 0, // rtype=3覆盖文件, rtype=0则返回报错, 不覆盖文件, 默认为rtype=1 (自动重命名, 1和2是两种不同的重命名策略)
+// }),
+
+function saveFile2(md5, size, path, bdstoken,access_token) {
+  openPostWindow(
+    `https://pan.baidu.com/rest/2.0/xpan/file?method=create${"&access_token=" + encodeURIComponent(access_token) }${
+      bdstoken ? "&bdstoken=" + bdstoken : ""
+    }`,
+    {
+      size,
+      path,
+      block_list: JSON.stringify([md5.toLowerCase()]),
+      rtype: 0,
+    }
+  );
+}
 
 function saveFile2(md5, size, path, bdstoken) {
   openPostWindow(
