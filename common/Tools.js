@@ -6,7 +6,7 @@
  * @Description: 共用JS工具库
  */
 
-const version = "1.4";
+const version = "1.5";
 const updateUrl =
   "https://api.github.com/repos/mengzonefire/baidupan-rapidupload/releases/latest";
 const releasePage =
@@ -125,7 +125,7 @@ function saveFile2(md5, size, path, bdstoken,access_token) {
 
 function saveFile2(md5, size, path, bdstoken) {
   openPostWindow(
-    `https://pan.baidu.com/rest/2.0/xpan/file?method=create${
+    `https://pan.baidu.com/api/create${
       bdstoken ? "&bdstoken=" + bdstoken : ""
     }`,
     {
