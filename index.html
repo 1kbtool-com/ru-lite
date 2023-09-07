@@ -110,7 +110,9 @@
           <div v-if="currentStep === 4" class="gap-y-4 grid">
             <h1 class="text-4xl font-bold">输入转存码</h1>
             <!-- <p>输入转存码，一行一个，点击转存会打开百度网盘首页和百度接口界面，<b>请务必允许打开多个窗口，否则转存失败</b>。请关闭百度网盘首页、打开接口界面，复制全部内容返回本页查看结果</p> -->
-            <p>输入转存码，一行一个，点击转存会打开百度接口界面，<b>如果转存失败，可能是登录过期，请重新打开</b><a href="https://pan.baidu.com" target="_blank" rel="noopener noreferrer">百度首页</a>。本程序支持结果解析。请复制全部内容返回本页查看结果</p>
+            <p>输入转存码，一行一个，点击转存会打开百度接口界面</p>
+            <p><b>如果转存失败，可能是登录过期，请重新打开<a  class="link link-primary" href="https://pan.baidu.com" target="_blank" rel="noopener noreferrer">百度首页</a></b></p>
+            <p></p>本程序支持结果解析。请复制全部内容返回本页查看结果</p>
             <textarea class="textarea" v-model="link" placeholder="请输入转存码"></textarea>
             <p> <button class="btn btn-primary" @click="submitLink">转存</button></p>
           </div>
