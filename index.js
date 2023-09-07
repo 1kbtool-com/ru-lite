@@ -122,7 +122,7 @@ new Vue({
                 alert('未检测到有效的秒传链接');
                 return;
             }
-            window.open('https://pan.baidu.com','_blank')
+            // window.open('https://pan.baidu.com','_blank')
             setTimeout(function() {
                 data.forEach(file => {
                     saveFile2(
