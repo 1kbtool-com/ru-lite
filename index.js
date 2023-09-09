@@ -122,18 +122,19 @@ new Vue({
                 alert('未检测到有效的秒传链接');
                 return;
             }
+            data.forEach(file => {
+                saveFile2(
+                    file.md5,
+                    file.size,
+                    savePath + file.path.replace(illegalPathPattern, "_"),
+                    bdstoken,
+                    access_token
+                );
+            });
             // window.open('https://pan.baidu.com','_blank')
-            setTimeout(function() {
-                data.forEach(file => {
-                    saveFile2(
-                        file.md5,
-                        file.size,
-                        savePath + file.path.replace(illegalPathPattern, "_"),
-                        bdstoken,
-                        access_token
-                    );
-                });
-              }, 1000); // 1000毫秒等于1秒
+            // setTimeout(function() {
+                
+            //   }, 1000); // 1000毫秒等于1秒
             this.nextStep()
             console.log(this.currentStep)
         }
