@@ -21,9 +21,9 @@ new Vue({
     data: {
         activeIndex: 0,
         messages: [
-            `注意：如果网页版无法使用，请使用 <a href="https://greasyfork.org/zh-CN/scripts/468633-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%A7%92%E4%BC%A0%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89%8B-%E6%94%AF%E6%8C%81pc%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E6%B0%B8%E4%B9%85%E6%97%A0%E5%B9%BF%E5%91%8A%E7%BB%BF%E8%89%B2%E7%89%88/">插件版</a>。秒传码可以点击第四步查看。`,
-            `使用教程请参考 <a href="https://1kbtool.com/web/rufixed/">本文</a>`,
-            `关于书籍秒传的获取，可以参考 <a href="https://ssdown.org/archives/1694769328287">本文</a>`,
+            `注意：如果网页版无法使用，请使用插件版<a href="https://greasyfork.org/zh-CN/scripts/468633-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%A7%92%E4%BC%A0%E8%BD%AC%E5%AD%98%E5%8A%A9%E6%89%8B-%E6%94%AF%E6%8C%81pc%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E6%B0%B8%E4%B9%85%E6%97%A0%E5%B9%BF%E5%91%8A%E7%BB%BF%E8%89%B2%E7%89%88/">【点此访问】</a>。秒传码可以点击第四步查看。`,
+            `使用方式请参考教程<a href="https://1kbtool.com/web/rufixed/">【点此访问】</a>`,
+            `关于书籍秒传的获取，可以参考易书的文章<a href="https://ssdown.org/archives/1694769328287">【点此访问】</a>`,
             '点击数字可以切换步骤',
             '可以在第五步的界面开启一键转存',
             '请允许弹出窗口',
