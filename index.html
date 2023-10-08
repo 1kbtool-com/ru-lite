@@ -96,7 +96,7 @@
               href="http://openapi.baidu.com/oauth/2.0/authorize?response_type=token&client_id=TDuBgLNeEbGO2BiN2xGWyi6aw8GGW6gK&redirect_uri=oob&scope=basic,netdisk"
               target="_blank" rel="noopener noreferrer">通道2</a>
             ，复制整个网址并粘贴到下面</p>
-            <p>注意：如果上面的获取通道被封，请尝试另一通道，以及 <a href="https://1kbtool.com/web/rutoken/">参考这篇教程</a><p>
+            <p>注意：如果上面的获取通道被封，请尝试另一通道，以及 <a class="link link-primary" href="https://1kbtool.com/web/rutoken/">参考这篇教程</a><p>
           <p><input type="text" v-model="access_token" placeholder="请输入access_token" class="input w-full max-w-xs"></p>
             <div>
               <button class="btn btn-primary " @click="get_bdstoken">确认</button>
@@ -116,7 +116,7 @@
             <p>输入转存码，一行一个，点击转存会打开百度接口界面</p>
             <p><b>如果转存失败，可能是登录过期，请重新打开<a  class="link link-primary" href="https://pan.baidu.com" target="_blank" rel="noopener noreferrer">百度首页</a></b></p>
             <p>本程序支持结果解析。请复制全部内容返回本页查看结果</p>
-            <p>如果出现 20010 错误，说明授权码通道被封，<a href="https://1kbtool.com/web/rutoken/">点此查看教程尝试其他通道</a>并返回第 2 步重试</p>
+            <p>如果出现 20010 错误，说明授权码通道被封，<a class="link link-primary" href="https://1kbtool.com/web/rutoken/">点此查看教程尝试其他通道</a>并返回第 2 步重试</p>
             <textarea class="textarea" v-model="link" placeholder="请输入转存码"></textarea>
             <p> <button class="btn btn-primary" @click="submitLink">转存</button></p>
           </div>
