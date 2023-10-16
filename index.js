@@ -95,6 +95,12 @@ new Vue({
                 case 31190:
                     msg = '秒传未生效';
                     break;
+                case 9019:
+                    msg = '授权码/授权通道失效，请重新获取';
+                    break;
+                case 20010:
+                    msg = '授权码/授权通道失效，请重新获取';
+                    break;
                 default:
                     msg = '未知错误';
             }
