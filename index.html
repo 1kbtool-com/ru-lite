@@ -116,7 +116,7 @@
             <p>输入转存码，一行一个，点击转存会打开百度接口界面</p>
             <p><b>如果转存失败，可能是登录过期，请重新打开<a  class="link link-primary" href="https://pan.baidu.com" target="_blank" rel="noopener noreferrer">百度首页</a></b></p>
             <p>本程序支持结果解析。请复制全部内容返回本页查看结果</p>
-            <p>如果出现 20010 错误，说明授权码通道被封，<a class="link link-primary" href="https://1kbtool.com/web/rutoken/">点此查看教程尝试其他通道</a>并返回第 2 步重试</p>
+            <p>如果出现 20010/9019 错误，说明授权码通道被封/授权码失效，<a class="link link-primary" href="https://1kbtool.com/web/rutoken/">点此查看教程尝试其他通道</a>并返回第 2 步重试</p>
             <textarea class="textarea" v-model="link" placeholder="请输入转存码"></textarea>
             <p> <button class="btn btn-primary" @click="submitLink">转存</button></p>
           </div>
@@ -147,7 +147,7 @@
   </div>
   <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
   <script src="./common/Tools.js?20230907"></script>
-  <script src="./index.js?20231002v2"></script>
+  <script src="./index.js?20231016"></script>
 </body>
 
 </html>
